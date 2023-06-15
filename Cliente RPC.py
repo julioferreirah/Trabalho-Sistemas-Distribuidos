@@ -7,6 +7,7 @@ IP = input('- Digite o IP do Servidor: ')
 PORTA = int(input('- Digite a PORTA: '))
 
 cont = t.time()
+
 servidor = xmlrpc.client.ServerProxy("http://{0}:{1}/".format(IP, PORTA))
 print("Tempo de conexão: %d" %(t.time() - cont))
 
@@ -52,3 +53,4 @@ print("Tempo médio chamada com long", tempoexp/5)
 print("Tempo médio chamada com lista", temposum/5)
 print("Tempo médio chamada com string", tempoupper/5)
 print("Tempo médio chamada com tipo complexo", tempocomplex/5)
+

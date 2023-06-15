@@ -4,7 +4,7 @@ import Classe
 
 print('\tSERVIDOR')
 
-IP = '127.0.0.1'
+IP = 'localhost'
 PORTA = 2020
 
 def void():
