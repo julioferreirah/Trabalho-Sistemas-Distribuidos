@@ -4,7 +4,7 @@ import math
 
 #FUNCOES
 def void():
-  return True
+  return
 
 def exp(long):
     return math.pow(long,2)
