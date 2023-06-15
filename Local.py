@@ -1,12 +1,13 @@
 import Classe
 import time as t
+import math
 
 #FUNCOES
 def void():
-  return
+  return True
 
 def exp(long):
-    return m.pow(long)
+    return math.pow(long,2)
 
 def sum(long1, long2, long3, long4, long5, long6, long7, long8):
   return long1+ long2+ long3+ long4+ long5+ long6+ long7+ long8 
@@ -26,35 +27,41 @@ tempoupper = 0
 tempocomplex = 0
 
 for i in range(5):
-	print("Rodada de requisições: %i" %(i))
-	cont = t.time()
-	
+    print("Rodada de requisições: %i" %(i))
+    cont = t.time()
+
     #chamada sem valor
     c =  t.time()
-	void()
+    print(void())
     tempovoid += t.time() - c
 
     #chamada de long
     c =  t.time()
-    exp(2.5+i)
+    print(exp(2.5+i))
     tempoexp += t.time() - c
 
     #chamada de lista de long
-    a = [8]
-	for j in range(8):
-		a[j] = float(input("Digite um long:"))
-	c =  t.time()
-	sum(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7])
+    a = []
+    for j in range(8):
+        a.append((2.5 + i + j)/2)
+    c =  t.time()
+    print(sum(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7]))
+    temposum += t.time() - c
 
     #chamada de string
     c =  t.time()
-    upper(str(input("Digite uma cadeia de 32 caracteres:")))
+    print(upper("string de 32 caracteres numero %i" %(i)))
+    tempoupper += t.time() - c
 
     #chamada de tipo complexo
+    com = Classe.Class()
     c =  t.time()
-    complex()
+    complex(com)
+    tempocomplex += t.time() - c
+    print(com.string, com.int)
 
-    print("Tempo total rodada %i: %d" %(i,t.time() - cont))
+    print("Tempo total rodada %i: %.5f" %(i,t.time() - cont))
+    print("===========================")
 
 print("Tempo médio chamada sem valor", tempovoid/5)
 print("Tempo médio chamada com long", tempoexp/5)

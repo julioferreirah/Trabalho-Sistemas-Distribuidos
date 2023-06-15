@@ -17,12 +17,12 @@ tempoupper = 0
 tempocomplex = 0
 
 for i in range(5):
-	print("Rodada de requisições: %i" %(i))
-	cont = t.time()
-	
+    print("Rodada de requisições: %i" %(i))
+    cont = t.time()
+
     #chamada sem valor
     c =  t.time()
-	servidor.void()
+    servidor.void()
     tempovoid += t.time() - c
 
     #chamada de long
@@ -32,10 +32,10 @@ for i in range(5):
 
     #chamada de lista de long
     a = [8]
-	for j in range(8):
-		a[j] = float(input("Digite um long:"))
-	c =  t.time()
-	servidor.sum(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7])
+    for j in range(8):
+        a[j] = float(input("Digite um long:"))
+    c =  t.time()
+    servidor.sum(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7])
 
     #chamada de string
     c =  t.time()
