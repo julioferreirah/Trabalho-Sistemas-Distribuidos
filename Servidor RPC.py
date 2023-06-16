@@ -1,6 +1,7 @@
 from xmlrpc.server import SimpleXMLRPCServer
 import math as m
 import Classe
+import xmlrpc.client
 
 print('\tSERVIDOR')
 
@@ -8,10 +9,10 @@ IP = 'localhost'
 PORTA = 2020
 
 def void():
-  return
+  pass
 
 def exp(long):
-    return m.pow(long)
+    return m.pow(long,2)
 
 def sum(long1, long2, long3, long4, long5, long6, long7, long8):
   return long1+ long2+ long3+ long4+ long5+ long6+ long7+ long8 
@@ -26,7 +27,7 @@ print('\nAVISO: O Não escrever no servidor.')
 
 print('\nEsperando por clientes: ')
 
-servidor = SimpleXMLRPCServer((IP, PORTA))
+servidor = SimpleXMLRPCServer((IP, PORTA), allow_none=True)
 
 servidor.register_function(void, "void")
 servidor.register_function(exp, "exp")

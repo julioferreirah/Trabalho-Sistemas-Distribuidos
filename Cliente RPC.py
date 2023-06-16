@@ -8,7 +8,7 @@ PORTA = int(input('- Digite a PORTA: '))
 
 cont = t.time()
 
-servidor = xmlrpc.client.ServerProxy("http://{0}:{1}/".format(IP, PORTA))
+servidor = xmlrpc.client.ServerProxy("http://{0}:{1}/".format(IP, PORTA), allow_none=True)
 print("Tempo de conexão: %d" %(t.time() - cont))
 
 tempovoid = 0
@@ -47,18 +47,12 @@ for i in range(5):
     #chamada de tipo complexo
     com = Classe.Class()
     c =  t.time()
-    servidor.complex(com)
+    #com = servidor.complex(com)
     tempocomplex += t.time() - c
     print(com.string, com.int)
 
     print("Tempo total rodada %i: %.5f" %(i,t.time() - cont))
     print("===========================")
-
-print("Tempo médio chamada sem valor", tempovoid/5)
-print("Tempo médio chamada com long", tempoexp/5)
-print("Tempo médio chamada com lista", temposum/5)
-print("Tempo médio chamada com string", tempoupper/5)
-print("Tempo médio chamada com tipo complexo", tempocomplex/5)
 
 print("Tempo médio chamada sem valor", tempovoid/5)
 print("Tempo médio chamada com long", tempoexp/5)

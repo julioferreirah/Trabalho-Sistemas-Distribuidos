@@ -6,3 +6,4 @@ class Class:
     def function(self):
         self.string = 'string'
         self.int = 1
+        return self
