@@ -10,7 +10,7 @@ class Mensagem:
     def to_xmlrpc(self):
         return {
             'string': xmlrpc.client.Binary(self.destinatario.encode('utf-8')),
-            'string1': xmlrpc.client.Binary(self.txt.encode('utf-8')),
+            'string': xmlrpc.client.Binary(self.txt.encode('utf-8')),
             'int': self.status
         }
 
@@ -19,8 +19,14 @@ class Mensagem:
         self.txt = data['string'].data.decode('utf-8')
         self.status = data['int']
 
-    def function(self):
+    def enviar(self):
         self.txt = 'txt'
-        self.destinatario = socket.gethostname
+        self.destinatario = socket.gethostname()
         self.status = 1
         return self
+    
+    def verificar(self):
+        if (self.status == 0):
+            return False
+        else :
+            return True

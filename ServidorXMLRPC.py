@@ -4,7 +4,7 @@ import xmlrpc.client
 
 print('\tSERVIDOR')
 
-IP = '192.168.15.31'
+IP = "127.0.0.1"
 PORTA = 2020
 
 def HelloWorld():
@@ -22,7 +22,12 @@ def inverter(string:str):
 def mensagem(complex_data:complex):
     com = Classe.Mensagem()
     com.from_xmlrpc(complex_data)
-    return com.function().to_xmlrpc()
+    return com.enviar().to_xmlrpc()
+
+def verifica_mensagem(complex_data:complex):
+    com = Classe.Mensagem()
+    com.from_xmlrpc(complex_data)
+    return com.verificar()
 
 print('\nAVISO: O Não escrever no servidor.')
 
@@ -35,5 +40,6 @@ servidor.register_function(dobra, "dobra")
 servidor.register_function(adicionar, "adicionar")
 servidor.register_function(inverter, "inverter")
 servidor.register_function(mensagem, "mensagem")
+servidor.register_function(verifica_mensagem, "verifica_mensagem")
 
 servidor.serve_forever()

@@ -4,7 +4,7 @@ import time as t
 print('\tCLIENTE')
 
 #IP = input('- Digite o IP do Servidor: ')
-IP = "192.168.15.31"
+IP = "127.0.0.1"
 #PORTA = int(input('- Digite a PORTA: '))
 PORTA = 2020
 
@@ -18,8 +18,9 @@ tempoDobra = 0
 tempoAdicionar = 0
 tempoInverter = 0
 tempoMensagem = 0
+tempoVerifica = 0
 
-for i in range(5):
+for i in range(10):
     print("Rodada de requisições: %i" %(i))
     cont = t.time()
 
@@ -54,6 +55,11 @@ for i in range(5):
     tempoMensagem += t.time() - c
     print(com.txt, com.status)
 
+    #chamada de tipo complexo voltando booleano
+    c = t.time()
+    print(servidor.verifica_mensagem(com.to_xmlrpc()))
+    tempoVerifica += t.time() - c   
+
     print("Tempo total rodada %i: %.5f" %(i,t.time() - cont))
     print("===========================")
 
@@ -62,5 +68,6 @@ print("Tempo médio chamada com long é ", tempoDobra/5)
 print("Tempo médio chamada com lista é ", tempoAdicionar/5)
 print("Tempo médio chamada com string é ", tempoInverter/5)
 print("Tempo médio chamada com tipo complexo é ", tempoMensagem/5)
-print("A soma dos tempos médios é ", (tempoHelloWord+tempoDobra+tempoAdicionar+tempoInverter+tempoMensagem)/5)
+print("Tempo médio chamada com tipo complexo e bool", tempoVerifica/5)
+print("A soma dos tempos médios é ", (tempoHelloWord+tempoDobra+tempoAdicionar+tempoInverter+tempoMensagem+tempoVerifica)/5)
 
