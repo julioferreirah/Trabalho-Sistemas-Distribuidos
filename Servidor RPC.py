@@ -20,8 +20,10 @@ def sum(long1, long2, long3, long4, long5, long6, long7, long8):
 def upper(string):
   return string.upper()
 
-def complex (complex):
-  return Classe.Class.function(complex)
+def complex(complex_data):
+    com = Classe.Class()
+    com.from_xmlrpc(complex_data)
+    return com.function().to_xmlrpc()
 
 print('\nAVISO: O Não escrever no servidor.')
 

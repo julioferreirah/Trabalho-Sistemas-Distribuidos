@@ -46,8 +46,9 @@ for i in range(5):
 
     #chamada de tipo complexo
     com = Classe.Class()
-    c =  t.time()
-    #com = servidor.complex(com)
+    c = t.time()
+    complex_data = servidor.complex(com.to_xmlrpc())
+    com.from_xmlrpc(complex_data)
     tempocomplex += t.time() - c
     print(com.string, com.int)
 
