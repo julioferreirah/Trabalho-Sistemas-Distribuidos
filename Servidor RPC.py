@@ -5,7 +5,7 @@ import xmlrpc.client
 
 print('\tSERVIDOR')
 
-IP = 'localhost'
+IP = '192.168.15.31'
 PORTA = 2020
 
 def void():

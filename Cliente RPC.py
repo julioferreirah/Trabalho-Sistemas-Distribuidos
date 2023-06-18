@@ -47,7 +47,7 @@ for i in range(5):
     #chamada de tipo complexo
     com = Classe.Class()
     c =  t.time()
-    com = servidor.complex(com)
+    #com = servidor.complex(com)
     tempocomplex += t.time() - c
     print(com.string, com.int)
 
