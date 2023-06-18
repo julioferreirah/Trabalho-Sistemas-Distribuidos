@@ -28,13 +28,13 @@ for i in range(5):
 
     #chamada de long
     c =  t.time()
-    print(servidor.exp(2.5+i))
+    print(servidor.exp(i * 12))
     tempoexp += t.time() - c
 
     #chamada de lista de long
     a = []
     for j in range(8):
-        a.append((2.5 + i + j)/2)
+        a.append((i + j)*10)
     c =  t.time()
     print(servidor.sum(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7]))
     temposum += t.time() - c
