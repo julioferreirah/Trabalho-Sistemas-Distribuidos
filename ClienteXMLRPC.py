@@ -64,11 +64,11 @@ for i in range(10):
     print("Tempo total rodada %i: %.5f" %(i,t.time() - cont))
     print("===========================")
 
-print("Tempo médio chamada sem valor é %.3f ms" %((tempoHelloWord/5)*1000))
-print("Tempo médio chamada com long é %.3f ms" %(tempoDobra/5*1000))
-print("Tempo médio chamada com lista é %.3f ms" %(tempoAdicionar/5*1000))
-print("Tempo médio chamada com string é %.3f ms" %(tempoInverter/5*1000))
-print("Tempo médio chamada com tipo complexo é %.3f ms" %(tempoMensagem/5*1000))
-print("Tempo médio chamada com tipo complexo e bool é %.3f ms" %(tempoVerifica/5*1000))
-print("A soma dos tempos médios é %.3f ms" %((tempoHelloWord+tempoDobra+tempoAdicionar+tempoInverter+tempoMensagem+tempoVerifica)/5*1000))
+print("Tempo médio chamada sem valor é %.3f ms" %(tempoHelloWord*100))
+print("Tempo médio chamada com long é %.3f ms" %(tempoDobra*100))
+print("Tempo médio chamada com lista é %.3f ms" %(tempoAdicionar*100))
+print("Tempo médio chamada com string é %.3f ms" %(tempoInverter*100))
+print("Tempo médio chamada com tipo complexo é %.3f ms" %(tempoMensagem*100))
+print("Tempo médio chamada com tipo complexo e bool é %.3f ms" %(tempoVerifica*100))
+print("A soma dos tempos médios é %.3f ms" %((tempoHelloWord+tempoDobra+tempoAdicionar+tempoInverter+tempoMensagem+tempoVerifica)*100))
 
