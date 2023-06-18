@@ -1,6 +1,5 @@
 from xmlrpc.server import SimpleXMLRPCServer
 import Classe
-import xmlrpc.client
 
 print('\tSERVIDOR')
 
