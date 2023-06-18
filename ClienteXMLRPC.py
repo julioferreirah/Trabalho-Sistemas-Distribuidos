@@ -3,19 +3,21 @@ import Classe
 import time as t
 print('\tCLIENTE')
 
-IP = input('- Digite o IP do Servidor: ')
-PORTA = int(input('- Digite a PORTA: '))
+#IP = input('- Digite o IP do Servidor: ')
+IP = "192.168.15.31"
+#PORTA = int(input('- Digite a PORTA: '))
+PORTA = 2020
 
 cont = t.time()
 
 servidor = xmlrpc.client.ServerProxy("http://{0}:{1}/".format(IP, PORTA), allow_none=True)
 print("Tempo de conexão: %d" %(t.time() - cont))
 
-tempovoid = 0
-tempoexp = 0
-temposum = 0
-tempoupper = 0
-tempocomplex = 0
+tempoHelloWord = 0
+tempoDobra = 0
+tempoAdicionar = 0
+tempoInverter = 0
+tempoMensagem = 0
 
 for i in range(5):
     print("Rodada de requisições: %i" %(i))
@@ -23,41 +25,42 @@ for i in range(5):
 
     #chamada sem valor
     c =  t.time()
-    print(servidor.void())
-    tempovoid += t.time() - c
+    print(servidor.HelloWorld())
+    tempoHelloWord += t.time() - c
 
     #chamada de long
     c =  t.time()
-    print(servidor.exp(i * 12))
-    tempoexp += t.time() - c
+    print(servidor.dobra(i * 12))
+    tempoDobra += t.time() - c
 
     #chamada de lista de long
     a = []
     for j in range(8):
         a.append((i + j)*10)
     c =  t.time()
-    print(servidor.sum(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7]))
-    temposum += t.time() - c
+    print(servidor.adicionar(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7]))
+    tempoAdicionar += t.time() - c
 
     #chamada de string
     c =  t.time()
-    print(servidor.upper("string de 32 caracteres numero %i" %(i)))
-    tempoupper += t.time() - c
+    print(servidor.inverter("string de 32 caracteres numero %i" %(i)))
+    tempoInverter += t.time() - c
 
     #chamada de tipo complexo
-    com = Classe.Class()
+    com = Classe.Mensagem()
     c = t.time()
-    complex_data = servidor.complex(com.to_xmlrpc())
+    complex_data = servidor.mensagem(com.to_xmlrpc())
     com.from_xmlrpc(complex_data)
-    tempocomplex += t.time() - c
-    print(com.string, com.int)
+    tempoMensagem += t.time() - c
+    print(com.txt, com.status)
 
     print("Tempo total rodada %i: %.5f" %(i,t.time() - cont))
     print("===========================")
 
-print("Tempo médio chamada sem valor", tempovoid/5)
-print("Tempo médio chamada com long", tempoexp/5)
-print("Tempo médio chamada com lista", temposum/5)
-print("Tempo médio chamada com string", tempoupper/5)
-print("Tempo médio chamada com tipo complexo", tempocomplex/5)
+print("Tempo médio chamada sem valor é ", tempoHelloWord/5)
+print("Tempo médio chamada com long é ", tempoDobra/5)
+print("Tempo médio chamada com lista é ", tempoAdicionar/5)
+print("Tempo médio chamada com string é ", tempoInverter/5)
+print("Tempo médio chamada com tipo complexo é ", tempoMensagem/5)
+print("A soma dos tempos médios é ", (tempoHelloWord+tempoDobra+tempoAdicionar+tempoInverter+tempoMensagem)/5)
 
