@@ -19,7 +19,7 @@ tempoAdicionar = 0
 tempoInverter = 0
 tempoMensagem = 0
 tempoVerifica = 0
-
+string = 'ab'
 for i in range(10):
     print("Rodada de requisições: %i" %(i))
     cont = t.time()
@@ -44,8 +44,9 @@ for i in range(10):
 
     #chamada de string
     c =  t.time()
-    print(servidor.inverter("string de 32 caracteres numero %i" %(i)))
+    print(servidor.inverter(string))
     tempoInverter += t.time() - c
+    string = 2*string
 
     #chamada de tipo complexo
     com = Classe.Mensagem()
