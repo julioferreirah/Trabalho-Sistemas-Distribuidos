@@ -26,26 +26,34 @@ for i in range(10):
 
     #chamada sem valor
     c =  t.time()
-    print(servidor.HelloWorld())
-    tempoHelloWord += t.time() - c
+    servidor.HelloWorld()
+    temp = t.time() - c
+    tempoHelloWord += temp
+    print(temp)
 
     #chamada de long
     c =  t.time()
-    print(servidor.dobra(i * 12))
-    tempoDobra += t.time() - c
+    servidor.dobra(i * 12)
+    temp = t.time() - c
+    tempoDobra += temp
+    print(temp)
 
     #chamada de lista de long
     a = []
     for j in range(8):
         a.append((i + j)*10)
     c =  t.time()
-    print(servidor.adicionar(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7]))
-    tempoAdicionar += t.time() - c
+    servidor.adicionar(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7])
+    temp = t.time() - c
+    tempoAdicionar += temp
+    print(temp)
 
     #chamada de string
     c =  t.time()
-    print(servidor.inverter(string))
-    tempoInverter += t.time() - c
+    servidor.inverter(string)
+    temp = t.time() - c
+    tempoInverter += temp
+    print(temp)
     string = 2*string
 
     #chamada de tipo complexo
@@ -53,13 +61,16 @@ for i in range(10):
     c = t.time()
     complex_data = servidor.mensagem(com.to_xmlrpc())
     com.from_xmlrpc(complex_data)
-    tempoMensagem += t.time() - c
-    print(com.txt, com.status)
+    temp = t.time() - c
+    tempoMensagem += temp
+    print(temp)
 
     #chamada de tipo complexo voltando booleano
     c = t.time()
-    print(servidor.verifica_mensagem(com.to_xmlrpc()))
-    tempoVerifica += t.time() - c   
+    servidor.verifica_mensagem(com.to_xmlrpc())
+    temp = t.time() - c 
+    tempoVerifica += temp  
+    print(temp)
 
     print("Tempo total rodada %i: %.3f ms" %(i,(t.time() - cont)*1000))
     print("===========================")
