@@ -61,7 +61,7 @@ for i in range(10):
     print(servidor.verifica_mensagem(com.to_xmlrpc()))
     tempoVerifica += t.time() - c   
 
-    print("Tempo total rodada %i: %.3f ms" %((i,t.time() - cont)*1000))
+    print("Tempo total rodada %i: %.3f ms" %(i,(t.time() - cont)*1000))
     print("===========================")
 
 print("Tempo médio chamada sem valor é %.3f ms" %(tempoHelloWord*100))
